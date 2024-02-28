@@ -89,5 +89,8 @@ Route::middleware(['web', 'auth', 'staff'])->group(function () {
 Route::middleware(['web', 'auth', 'user'])->group(function () {
     Route::prefix('user/')->controller(AdminController::class)->group(function () {
         Route::get('dashboard', 'userdashboard')->name('user.dashboard');
+        Route::get('feedback', 'feedback')->name('user.feedback');
+        Route::post('feedback', 'feedbacksave')->name('user.feedback.save');
+        Route::post('account/{id}', 'userselfupdate')->name('user.self.update');
     });
 });

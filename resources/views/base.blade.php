@@ -39,21 +39,12 @@
                     </div>
                 </a>
             </li>
-            <li>
-                <a href="/orders"><i class="bi bi-code-square me-2"></i>My Orders</a>
-            </li>
-            <li>
-                <a href="/address"><i class="bi bi-file-break me-2"></i>My Addresses</a>
-            </li>
-            <li>
-                <a href="/about"><i class="bi bi-back me-2"></i>About Us</a>
-            </li>
-            <li>
-                <a href="/contact"><i class="bi bi-envelope me-2"></i>Contact Us</a>
-            </li>
             @if(Auth::user())
             <li>
-                <a href="/logout"><i class="bi bi-power me-2"></i> Logout</a>
+                <a href="{{ route('user.feedback') }}"><i class="bi bi-file me-2"></i> Feedback / Complaints</a>
+            </li>
+            <li>
+                <a href="{{ route('logout') }}"><i class="bi bi-power me-2"></i> Logout</a>
             </li>
             @endif
         </ul>

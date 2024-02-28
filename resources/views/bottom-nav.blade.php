@@ -7,13 +7,13 @@
             </a>
         </div>
         <div class="col-3 p-0 text-center">
-            <a class="p-2 d-inline-block {{ (request()->segment(1) == 'cart') ? 'text-warning' : 'text-white' }} w-100" href="/cart">
+            <a class="p-2 d-inline-block {{ (request()->segment(1) == 'cart') ? 'text-warning' : 'text-white' }} w-100" href="{{ route('index') }}">
                 <span><i class="bi bi-basket h4"></i></span>
                 <p class="m-0 small">MY CART</p>
             </a>
         </div>
         <div class="col-3 p-0 text-center">
-            <a class="p-2 d-inline-block {{ (request()->segment(1) == 'orders') ? 'text-warning' : 'text-white' }} w-100" href="/orders">
+            <a class="p-2 d-inline-block {{ (request()->segment(1) == 'orders') ? 'text-warning' : 'text-white' }} w-100" href="{{ route('index') }}">
                 <span><i class="bi bi-gift h4"></i></span>
                 <p class="m-0 small">MY ORDERS</p>
             </a>

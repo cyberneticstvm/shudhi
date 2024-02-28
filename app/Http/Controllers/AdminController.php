@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\District;
+use App\Models\Feedback;
 use App\Models\LocalBody;
 use App\Models\Product;
 use Exception;
@@ -36,7 +37,7 @@ class AdminController extends Controller
         elseif (Auth::user()->role == 'Staff') :
             return redirect()->route('staff.dashboard');
         else :
-            return redirect()->route('user.account');
+            return redirect()->route('user.dashboard');
         endif;
     }
 
@@ -52,7 +53,7 @@ class AdminController extends Controller
 
     public function userdashboard()
     {
-        return view('index');
+        return view('account');
     }
 
     public function authenticate(Request $request)
@@ -98,6 +99,22 @@ class AdminController extends Controller
         return redirect()->route('login')->with("success", "User registered successfully");
     }
 
+    public function userselfupdate(Request $request, string $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'mobile' => 'required|numeric|digits:10|unique:users,mobile,' . $id,
+            'address' => 'required',
+            'status' => 'required',
+            'role' => 'required',
+        ]);
+        $input = $request->all();
+        $user = User::findOrFail($id);
+        $input['password'] = ($request->password) ? bcrypt($request->password) : $user->getOriginal('password');
+        $user->update($input);
+        return redirect()->back()->with("success", "User updated successfully");
+    }
+
     public function districts()
     {
         $districts = District::all();
@@ -108,5 +125,23 @@ class AdminController extends Controller
     {
         $lbs = LocalBody::all();
         return view('admin.lb.index', compact('lbs'));
+    }
+
+    public function feedback()
+    {
+        $feeds = Feedback::where('user_id', Auth::id())->get();
+        return view('feedback', compact('feeds'));
+    }
+
+    public function feedbacksave(Request $request)
+    {
+        $this->validate($request, [
+            'feedback' => 'required',
+            'type' => 'required',
+        ]);
+        $input = $request->all();
+        $input['user_id'] = Auth::id();
+        Feedback::create($input);
+        return redirect()->back()->with("success", "Feedback submitted successfully");
     }
 }
