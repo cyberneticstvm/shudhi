@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\User;
 use App\Models\District;
 use App\Models\LocalBody;
 use App\Models\Product;
@@ -84,7 +84,18 @@ class AdminController extends Controller
 
     public function signup(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'mobile' => 'required|numeric|digits:10|unique:users,mobile',
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required'
+        ]);
+        $input = $request->all();
+        $input['password'] = bcrypt($request->password);
+        $input['status'] = 1;
+        $input['role'] = 'User';
+        User::create($input);
+        return redirect()->route('login')->with("success", "User registered successfully");
     }
 
     public function districts()
