@@ -60,7 +60,7 @@ class AdminController extends Controller
     {
         $this->validate($request, [
             'mobile' => 'required|numeric|digits:10',
-            'password' => 'required|min:6',
+            'password' => 'required',
         ]);
         try {
             $credentials = $request->only('mobile', 'password');
