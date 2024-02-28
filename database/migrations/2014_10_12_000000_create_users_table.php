@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique()->nullable();
             $table->string('mobile', 10)->unique();
+            $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('password_reset_token')->nullable();
             $table->enum('role', ['Admin', 'Staff', 'User']);
+            $table->boolean('status')->default('1')->comment('1-Active, 0-Inactive');
             $table->rememberToken();
             $table->timestamps();
         });

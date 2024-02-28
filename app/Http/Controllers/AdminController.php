@@ -61,6 +61,7 @@ class AdminController extends Controller
         ]);
         try {
             $credentials = $request->only('mobile', 'password');
+            $credentials['status'] = 1;
             if (Auth::attempt($credentials)) {
                 return redirect()->route('account')
                     ->with("success", "User logged in successfully");

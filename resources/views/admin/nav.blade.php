@@ -23,7 +23,7 @@
                             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             <li><a href="{{ route('categories') }}">Product Category Management</a></li>
                             <li><a href="{{ route('products') }}">Product Management</a></li>
-                            <li><a href="">Staff Management</a></li>
+                            <li><a href="{{ route('users') }}">Staff Management</a></li>
                             <li><a href="">District Management</a></li>
                             <li><a href="">LSGs Management</a></li>
                             <li><a href="">Ward Management</a></li>

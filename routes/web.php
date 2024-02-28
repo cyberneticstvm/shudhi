@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,15 @@ Route::middleware(['web', 'auth', 'admin'])->group(function () {
         Route::get('product/edit/{id}', 'edit')->name('product.edit');
         Route::put('product/update/{id}', 'update')->name('product.update');
         Route::get('product/delete/{id}', 'destroy')->name('product.delete');
+    });
+
+    Route::prefix('admin/')->controller(UserController::class)->group(function () {
+        Route::get('users', 'index')->name('users');
+        Route::get('user/create', 'create')->name('user.create');
+        Route::post('user/save', 'store')->name('user.save');
+        Route::get('user/edit/{id}', 'edit')->name('user.edit');
+        Route::put('user/update/{id}', 'update')->name('user.update');
+        Route::get('user/delete/{id}', 'destroy')->name('user.delete');
     });
 });
 
