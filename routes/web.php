@@ -37,6 +37,8 @@ Route::middleware(['web', 'auth'])->group(function () {
 Route::middleware(['web', 'auth', 'admin'])->group(function () {
     Route::prefix('admin/')->controller(AdminController::class)->group(function () {
         Route::get('dashboard', 'admindashboard')->name('admin.dashboard');
+
+        Route::get('districts', 'districts')->name('districts');
     });
 
     Route::prefix('admin/')->controller(CategoryController::class)->group(function () {

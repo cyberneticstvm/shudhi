@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\District;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -83,5 +84,11 @@ class AdminController extends Controller
     public function signup(Request $request)
     {
         //
+    }
+
+    public function districts()
+    {
+        $districts = District::all();
+        return view('admin.district.index', compact('districts'));
     }
 }
