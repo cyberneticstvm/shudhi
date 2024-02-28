@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,7 @@ Route::middleware(['web', 'auth', 'admin'])->group(function () {
         Route::get('dashboard', 'admindashboard')->name('admin.dashboard');
 
         Route::get('districts', 'districts')->name('districts');
+        Route::get('local-bodies', 'localbodies')->name('lbs');
     });
 
     Route::prefix('admin/')->controller(CategoryController::class)->group(function () {
@@ -66,6 +68,15 @@ Route::middleware(['web', 'auth', 'admin'])->group(function () {
         Route::get('user/edit/{id}', 'edit')->name('user.edit');
         Route::put('user/update/{id}', 'update')->name('user.update');
         Route::get('user/delete/{id}', 'destroy')->name('user.delete');
+    });
+
+    Route::prefix('admin/')->controller(WardController::class)->group(function () {
+        Route::get('wards', 'index')->name('wards');
+        Route::get('ward/create', 'create')->name('ward.create');
+        Route::post('ward/save', 'store')->name('ward.save');
+        Route::get('ward/edit/{id}', 'edit')->name('ward.edit');
+        Route::put('ward/update/{id}', 'update')->name('ward.update');
+        Route::get('ward/delete/{id}', 'destroy')->name('ward.delete');
     });
 });
 

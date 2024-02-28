@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LocalBody extends Model
+class Ward extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function district()
+    public $timestamps = false;
+
+    public function localbody()
     {
-        return $this->belongsTo(District::class, 'district_id', 'id');
+        return $this->belongsTo(LocalBody::class, 'localbody_id', 'id');
     }
 }

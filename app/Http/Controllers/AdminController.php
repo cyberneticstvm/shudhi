@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\District;
+use App\Models\LocalBody;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -90,5 +91,11 @@ class AdminController extends Controller
     {
         $districts = District::all();
         return view('admin.district.index', compact('districts'));
+    }
+
+    public function localbodies()
+    {
+        $lbs = LocalBody::all();
+        return view('admin.lb.index', compact('lbs'));
     }
 }

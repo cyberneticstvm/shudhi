@@ -25,8 +25,8 @@
                             <li><a href="{{ route('products') }}">Product Management</a></li>
                             <li><a href="{{ route('users') }}">Staff Management</a></li>
                             <li><a href="{{ route('districts') }}">District Management</a></li>
-                            <li><a href="">LSGs Management</a></li>
-                            <li><a href="">Ward Management</a></li>
+                            <li><a href="{{ route('lbs') }}">LBs Management</a></li>
+                            <li><a href="{{ route('wards') }}">Ward Management</a></li>
                         </ul>
                     </li>
                 </ul>
