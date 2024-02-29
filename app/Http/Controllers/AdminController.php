@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Staff;
+use App\Models\CustomerGeoTagging;
 use App\Models\User;
 use App\Models\District;
 use App\Models\Feedback;
 use App\Models\LocalBody;
 use App\Models\Product;
+use App\Models\StaffFeedback;
+use App\Models\Ward;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -142,6 +146,60 @@ class AdminController extends Controller
         $input = $request->all();
         $input['user_id'] = Auth::id();
         Feedback::create($input);
+        return redirect()->back()->with("success", "Feedback submitted successfully");
+    }
+
+    public function geotagginglist()
+    {
+        $geos = CustomerGeoTagging::where('created_by', Auth::id())->get();
+        return view('staff.geo-list', compact('geos'));
+    }
+
+    public function geotagging()
+    {
+        $lbs = LocalBody::leftJoin('districts as d', 'd.id', 'local_bodies.district_id')->selectRaw("CONCAT_WS(' -- ', local_bodies.name, d.name) AS name, local_bodies.id as id")->get();
+        $districts = District::all();
+        $wards = Ward::all();
+        $products = Product::all();
+        return view('staff.geo-tagging', compact('lbs', 'districts', 'wards', 'products'));
+    }
+
+    public function geotaggingsave(Request $request)
+    {
+        $this->validate($request, [
+            'product_id' => 'required',
+            'customer_name' => 'required',
+            'mobile' => 'required|numeric|digits:10',
+            'location' => 'required',
+            'localbody_id' => 'required',
+            'district_id' => 'required',
+            'ward_id' => 'required',
+        ]);
+        $input = $request->all();
+        $input['created_by'] = $request->user()->id;
+        CustomerGeoTagging::create($input);
+        return redirect()->route('staff.geo.tagging.list')->with("success", "Tagged Successfully");
+    }
+
+    public function stafffeedback()
+    {
+        $customers = User::where('role', 'User')->where('status', 1)->get();
+        $products = Product::where('status', 1)->get();
+        $feedbacks = StaffFeedback::where('user_id', Auth::id())->get();
+        return view('staff.feedback', compact('customers', 'products', 'feedbacks'));
+    }
+
+    public function stafffeedbacksave(Request $request)
+    {
+        $this->validate($request, [
+            'remarks' => 'required',
+            'status' => 'required',
+            'product_id' => 'required',
+            'remarks' => 'required',
+        ]);
+        $input = $request->all();
+        $input['user_id'] = Auth::id();
+        StaffFeedback::create($input);
         return redirect()->back()->with("success", "Feedback submitted successfully");
     }
 }

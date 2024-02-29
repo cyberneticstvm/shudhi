@@ -39,10 +39,19 @@
                     </div>
                 </a>
             </li>
-            @if(Auth::user())
+            @if(Auth::user() && Auth::user()->role == 'User')
             <li>
                 <a href="{{ route('user.feedback') }}"><i class="bi bi-file me-2"></i> Feedback / Complaints</a>
             </li>
+            @endif
+            @if(Auth::user() && Auth::user()->role == 'Staff')
+            <li>
+                <a href="{{ route('staff.geo.tagging.list') }}"><i class="bi bi-file me-2"></i> Tagged List</a>
+                <a href="{{ route('staff.geo.tagging') }}"><i class="bi bi-file me-2"></i> Tag New Customer</a>
+                <a href="{{ route('staff.feedback') }}"><i class="bi bi-file me-2"></i> Feedback</a>
+            </li>
+            @endif
+            @if(Auth::user())
             <li>
                 <a href="{{ route('logout') }}"><i class="bi bi-power me-2"></i> Logout</a>
             </li>
@@ -68,7 +77,7 @@
                 country: "in"
             }
         };
-        //window.addEventListener('load', initialize);
+        window.addEventListener('load', initialize);
 
         function initialize() {
             var input = document.getElementById('address');
@@ -81,7 +90,7 @@
         }
     </script>
     <script>
-        //pickmylocation();
+        pickmylocation();
 
         function pickmylocation() {
             navigator.geolocation.getCurrentPosition(

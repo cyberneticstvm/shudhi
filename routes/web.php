@@ -83,6 +83,12 @@ Route::middleware(['web', 'auth', 'admin'])->group(function () {
 Route::middleware(['web', 'auth', 'staff'])->group(function () {
     Route::prefix('staff/')->controller(AdminController::class)->group(function () {
         Route::get('dashboard', 'staffdashboard')->name('staff.dashboard');
+        Route::post('account/{id}', 'userselfupdate')->name('staff.self.update');
+        Route::get('geo/tagging/list', 'geotagginglist')->name('staff.geo.tagging.list');
+        Route::get('geo/tagging', 'geotagging')->name('staff.geo.tagging');
+        Route::post('geo/tagging', 'geotaggingsave')->name('staff.geo.tagging.save');
+        Route::get('feedback', 'stafffeedback')->name('staff.feedback');
+        Route::post('feedback', 'stafffeedbacksave')->name('staff.feedback.save');
     });
 });
 
