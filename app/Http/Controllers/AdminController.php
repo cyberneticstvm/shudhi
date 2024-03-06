@@ -18,10 +18,20 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function home()
+    {
+        return view('home');
+    }
+
     public function index()
     {
         $products = Product::where('status', 1)->latest()->get();
         return view('index', compact('products'));
+    }
+
+    public function adminlogin()
+    {
+        return view('admin.login');
     }
 
     public function login()
@@ -81,10 +91,15 @@ class AdminController extends Controller
 
     public function logout(Request $request): RedirectResponse
     {
+        $role = $request->user()->role;
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')->with("success", "User logged out successfully");
+        if ($role == 'Admin') :
+            return redirect()->route('admin.login')->with("success", "User logged out successfully");
+        else :
+            return redirect()->route('login')->with("success", "User logged out successfully");
+        endif;
     }
 
     public function signup(Request $request)
@@ -183,9 +198,9 @@ class AdminController extends Controller
 
     public function stafffeedback()
     {
-        $customers = User::where('role', 'User')->where('status', 1)->get();
+        $customers = CustomerGeoTagging::all();
         $products = Product::where('status', 1)->get();
-        $feedbacks = StaffFeedback::where('user_id', Auth::id())->get();
+        $feedbacks = StaffFeedback::where('created_by', Auth::id())->get();
         return view('staff.feedback', compact('customers', 'products', 'feedbacks'));
     }
 
@@ -196,9 +211,10 @@ class AdminController extends Controller
             'status' => 'required',
             'product_id' => 'required',
             'remarks' => 'required',
+            'user_id' => 'required'
         ]);
         $input = $request->all();
-        $input['user_id'] = Auth::id();
+        $input['created_by'] = Auth::id();
         StaffFeedback::create($input);
         return redirect()->back()->with("success", "Feedback submitted successfully");
     }

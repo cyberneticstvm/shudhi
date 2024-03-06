@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
@@ -21,10 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['web'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/', 'login')->name('login');
-        Route::get('/shudhiwmsorg', 'index')->name('index');
+        Route::get('/shudhiwmsorg', 'home')->name('home');
+        Route::get('/index', 'index')->name('index');
         Route::post('/login', 'authenticate')->name('authenticate');
         Route::get('/register', 'register')->name('register');
         Route::post('/register', 'signup')->name('signup');
+        Route::get('/admin/login', 'adminlogin')->name('admin.login');
     });
 });
 
@@ -36,6 +39,13 @@ Route::middleware(['web', 'auth'])->group(function () {
 });
 
 Route::middleware(['web', 'auth', 'admin'])->group(function () {
+
+    Route::prefix('admin/report/')->controller(ReportController::class)->group(function () {
+        Route::get('staff/feedback', 'staffFeedback')->name('admin.report.staff.feedback');
+        Route::post('staff/feedback', 'getStaffFeedback')->name('admin.report.staff.feedback.fetch');
+    });
+
+
     Route::prefix('admin/')->controller(AdminController::class)->group(function () {
         Route::get('dashboard', 'admindashboard')->name('admin.dashboard');
 

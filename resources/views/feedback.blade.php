@@ -32,6 +32,7 @@
                     <option value="">Select</option>
                     <option value="Feedback">Feedback</option>
                     <option value="Complaint">Complaint</option>
+                    <option value="Service Request">Service Request</option>
                 </select>
             </div>
             @error('type')

@@ -28,14 +28,14 @@
             <label class="form-label text-muted small mb-1 req">Customer</label>
             <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
                 <span class="input-group-text bg-white"><i class="bi bi-people text-muted"></i></span>
-                {{ html()->select('user_id', $customers->pluck('name', 'id'), old('user_id'))->class('form-control select2')->placeholder('Select') }}
+                {{ html()->select('user_id', $customers->pluck('customer_name', 'id'), old('user_id'))->class('form-control select2')->placeholder('Select') }}
             </div>
             @error('user_id')
             <small class="text-danger">{{ $errors->first('user_id') }}</small>
             @enderror
         </div>
         <div class="mb-4">
-            <label class="form-label text-muted small mb-1 req">Status</label>
+            <label class="form-label text-muted small mb-1 req">Bin Condition</label>
             <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
                 <span class="input-group-text bg-white"><i class="bi bi-file text-muted"></i></span>
                 {{ html()->select('status', array('Working' => 'Working', 'Not Working' => 'Not Workking'), old('status'))->class('form-control select2')->placeholder('Select') }}
@@ -48,7 +48,7 @@
             <label class="form-label text-muted small mb-1 req">Remarks</label>
             <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
                 <span class="input-group-text bg-white"><i class="bi bi-file text-muted"></i></span>
-                <textarea class="form-control" name="remarks" placeholder="Remarks">{{ old('remarks') }}</textarea>
+                {{ html()->select('remarks', array('Working' => 'Working', 'Just Okay' => 'Just Okay', 'Leachate Problem' => 'Leachate Problem', 'Bad Smell' => 'Bad Smell', 'Dry Condition' => 'Dry Condition', 'Worm Affected' => 'Worm Affected'), old('remarks'))->class('form-control select2')->placeholder('Select') }}
             </div>
             @error('remarks')
             <small class="text-danger">{{ $errors->first('remarks') }}</small>
@@ -75,7 +75,7 @@
             <tr>
                 <td>{{ $key +1 }}</td>
                 <td>{{ $feed->product->name }}</td>
-                <td>{{ $feed->customer->name }}</td>
+                <td>{{ $feed->customer?->customer_name }}</td>
                 <td>{{ $feed->status }}</td>
                 <td>{{ $feed->remarks }}</td>
             </tr>
