@@ -21,13 +21,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/', 'login')->name('login');
+        Route::get('/user/login', 'login')->name('login');
         Route::get('/shudhiwmsorg', 'home')->name('home');
         Route::get('/index', 'index')->name('index');
         Route::post('/login', 'authenticate')->name('authenticate');
         Route::get('/register', 'register')->name('register');
         Route::post('/register', 'signup')->name('signup');
-        Route::get('/admin/login', 'adminlogin')->name('admin.login');
+        Route::get('/', 'adminlogin')->name('admin.login');
     });
 });
 
