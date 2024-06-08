@@ -70,30 +70,16 @@
                                 <th>SL No</th>
                                 <th>Customer Name</th>
                                 <th>Contact Number</th>
-                                <th>Address</th>
-                                <th>Ward</th>
-                                <th>Local Body</th>
-                                <th>District</th>
-                                <th>Device</th>
-                                <th>Status</th>
-                                <th>Remarks</th>
-                                <th>Staff</th>
-                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Submitted Date</th>
                             </thead>
                             <tbody class="consultationTblBody">
                                 @forelse($data as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $item->customer?->customer_name }}</td>
-                                    <td>{{ $item->customer?->mobile }}</td>
-                                    <td>{{ $item->customer?->location }}</td>
-                                    <td>{{ $item->customer?->ward?->name }}</td>
-                                    <td>{{ $item->customer?->localbody?->name }}</td>
-                                    <td>{{ $item->customer?->district?->name }}</td>
-                                    <td>{{ $item->customer?->product?->name }}</td>
-                                    <td>{{ $item->status }}</td>
-                                    <td>{{ $item->remarks }}</td>
-                                    <td>{{ $item->user?->name }}</td>
+                                    <td>{{ $item->customer_name }}</td>
+                                    <td>{{ $item->mobile }}</td>
+                                    <td>{{ $item->location }}</td>
                                     <td>{{ $item->created_at->format('d, M Y') }}</td>
                                 </tr>
                                 @empty
