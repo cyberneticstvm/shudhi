@@ -3,6 +3,9 @@ $(document).ready(function() {
     // Basic table example 
     $('#basic-1').DataTable();
     $('#basic-2').DataTable({
+        buttons: [
+            'excel'
+        ],
         "paging":   true,
         "ordering": false,
         "info":     false
