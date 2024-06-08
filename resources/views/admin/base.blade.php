@@ -146,12 +146,12 @@
     <!-- login js-->
     <!-- Plugin used-->
     <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatables/buttons/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatables/buttons/jszip.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatables/buttons/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatables/buttons/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatables/buttons/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatables/buttons/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatables/datatables/buttons/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatables/datatables/buttons/jszip.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatables/datatables/buttons/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatables/datatables/buttons/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatables/datatables/buttons/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatables/datatables/buttons/buttons.print.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
 
     @include("message")
