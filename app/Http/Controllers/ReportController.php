@@ -34,7 +34,7 @@ class ReportController extends Controller
         $input = array(date('Y-m-d'), date('Y-m-d'), 1);
         $lbs = LocalBody::pluck('name', 'id');
         $data = [];
-        return view('admin.report.staff.geo-tagging', compact('input', 'data'));
+        return view('admin.report.staff.geo-tagging', compact('input', 'data', 'lbs'));
     }
 
     public function getGeoTagging(Request $request)
