@@ -148,7 +148,7 @@
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
 
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
+    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>-->
 
 
     <!-- Theme js-->
