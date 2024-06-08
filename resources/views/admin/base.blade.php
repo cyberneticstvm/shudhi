@@ -30,8 +30,7 @@
     <!-- Plugins css start-->
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/todo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/select2.css') }}">
-    <!--<link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">-->
-    <link href="https://cdn.datatables.net/v/dt/jq-3.7.0/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-html5-3.0.2/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/date-picker.css') }}">
@@ -121,6 +120,16 @@
     <script src="{{ asset('/backend/assets/js/bootstrap_bundle.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/tooltip-init.js') }}"></script>
 
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/jszip.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
+
+
     <script src="{{ asset('/backend/assets/js/clipboard/clipboard.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/counter/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/counter/jquery.counterup.min.js') }}"></script>
@@ -146,30 +155,6 @@
     <!--<script src="{{ asset('/backend/assets/js/theme-customizer/customizer.js') }}"></script>-->
     <!-- login js-->
     <!-- Plugin used-->
-    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/buttons/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/buttons/jszip.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/buttons/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/buttons/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.print.min.js') }}"></script>-->
-    <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-html5-3.0.2/datatables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-
-    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>-->
-    <script>
-        $(function() {
-            $('#basic-2').DataTable({
-                buttons: [
-                    'excel'
-                ],
-                "paging": true,
-                "ordering": false,
-                "info": false
-            });
-        })
-    </script>
     @include("message")
 </body>
 
