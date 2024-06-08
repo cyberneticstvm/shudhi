@@ -129,6 +129,19 @@
     <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.print.min.js') }}"></script>
     <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>-->
 
+    <script>
+        $(function() {
+            $('#basic-2').DataTable({
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ],
+                "paging": true,
+                "ordering": false,
+                "info": false
+            });
+        })
+    </script>
+
 
     <script src="{{ asset('/backend/assets/js/clipboard/clipboard.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/counter/jquery.waypoints.min.js') }}"></script>
