@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('#basic-1').DataTable();
     $('#basic-2').DataTable({
         buttons: [
-            'excel'
+            'copy', 'excel', 'pdf'
         ],
         "paging":   true,
         "ordering": false,
