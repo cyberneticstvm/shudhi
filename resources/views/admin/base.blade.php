@@ -119,7 +119,7 @@
     <!-- Plugins JS start-->
     <script src="{{ asset('/backend/assets/js/bootstrap_bundle.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/tooltip-init.js') }}"></script>
-    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>-->
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
 
 
     <script src="{{ asset('/backend/assets/js/clipboard/clipboard.min.js') }}"></script>
@@ -139,7 +139,6 @@
     <script src="{{ asset('/backend/assets/js/todo/todo.js') }}"></script>
     <!-- Plugins JS Ends-->
 
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.bootstrap5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -148,7 +147,7 @@
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
 
-    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>-->
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
 
 
     <!-- Theme js-->
@@ -156,18 +155,6 @@
     <script src="{{ asset('/backend/assets/js/mpp.js') }}"></script>
     <script>
         var colorurl = "{{ asset('/backend/assets') }}";
-    </script>
-    <script>
-        $(function() {
-            $('#basic-2').DataTable({
-                buttons: [
-                    'excel'
-                ],
-                "paging": true,
-                "ordering": false,
-                "info": false
-            });
-        })
     </script>
     <!--<script src="{{ asset('/backend/assets/js/theme-customizer/customizer.js') }}"></script>-->
     <!-- login js-->
