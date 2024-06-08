@@ -157,6 +157,18 @@
     <script>
         var colorurl = "{{ asset('/backend/assets') }}";
     </script>
+    <script>
+        $(function() {
+            $('#basic-2').DataTable({
+                buttons: [
+                    'excel'
+                ],
+                "paging": true,
+                "ordering": false,
+                "info": false
+            });
+        })
+    </script>
     <!--<script src="{{ asset('/backend/assets/js/theme-customizer/customizer.js') }}"></script>-->
     <!-- login js-->
     <!-- Plugin used-->
