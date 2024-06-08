@@ -28,7 +28,8 @@
     <!-- Plugins css start-->
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/todo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/select2.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/dataTables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/date-picker.css') }}">
@@ -118,14 +119,15 @@
     <script src="{{ asset('/backend/assets/js/bootstrap_bundle.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/tooltip-init.js') }}"></script>
 
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>-->
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/dataTables.bundle.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/buttons/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/buttons/jszip.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/buttons/pdfmake.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/buttons/vfs_fonts.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
+    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>-->
 
 
     <script src="{{ asset('/backend/assets/js/clipboard/clipboard.min.js') }}"></script>
