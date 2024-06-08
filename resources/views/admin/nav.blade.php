@@ -32,6 +32,7 @@
                     <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="home"></i><span>Reports</span></a>
                         <ul class="nav-submenu menu-content">
                             <li><a href="{{ route('admin.report.staff.feedback') }}">Feedback</a></li>
+                            <li><a href="{{ route('admin.report.geo.tagging') }}">GEO Tagging</a></li>
                         </ul>
                     </li>
                 </ul>

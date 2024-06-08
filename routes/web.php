@@ -43,6 +43,8 @@ Route::middleware(['web', 'auth', 'admin'])->group(function () {
     Route::prefix('admin/report/')->controller(ReportController::class)->group(function () {
         Route::get('staff/feedback', 'staffFeedback')->name('admin.report.staff.feedback');
         Route::post('staff/feedback', 'getStaffFeedback')->name('admin.report.staff.feedback.fetch');
+        Route::get('staff/geo/taging', 'geoTagging')->name('admin.report.geo.tagging');
+        Route::post('staff/geo/taging', 'getGeoTagging')->name('admin.report.geo.tagging.fetch');
     });
 
 

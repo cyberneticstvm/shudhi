@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LocalBody;
 use App\Models\StaffFeedback;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,5 +27,18 @@ class ReportController extends Controller
         $todate = Carbon::parse($request->to_date)->endOfDay();
         $data = StaffFeedback::whereBetween('created_at', [$fromdate, $todate])->get();
         return view('admin.report.staff.feedback', compact('input', 'data'));
+    }
+
+    public function geoTagging()
+    {
+        $input = array(date('Y-m-d'), date('Y-m-d'), 1);
+        $lbs = LocalBody::pluck('name', 'id');
+        $data = [];
+        return view('admin.report.staff.geo-tagging', compact('input', 'data'));
+    }
+
+    public function getGeoTagging(Request $request)
+    {
+        //
     }
 }
