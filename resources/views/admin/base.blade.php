@@ -134,10 +134,7 @@
             $('#basic-2').DataTable({
                 buttons: [
                     'copy', 'excel', 'pdf'
-                ],
-                "paging": true,
-                "ordering": false,
-                "info": false
+                ]
             });
         })
     </script>
