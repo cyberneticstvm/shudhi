@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/todo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/select2.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/date-picker.css') }}">
