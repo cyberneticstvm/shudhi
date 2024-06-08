@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label class="col-form-label pt-0 req" for="to_date">Local Body </label>
-                                        {{ html()->select('local_body', $input[2])->class('form-control select2') }}
+                                        {{ html()->select('local_body', $lbs, $input[2])->class('form-control select2') }}
                                         @error('local_body')
                                         <small class="text-danger">{{ $errors->first('local_body') }}</small>
                                         @enderror
