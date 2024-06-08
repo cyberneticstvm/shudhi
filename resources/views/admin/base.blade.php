@@ -148,7 +148,6 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ asset('/backend/assets/js/script.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/mpp.js') }}"></script>
     <script>
         var colorurl = "{{ asset('/backend/assets') }}";
     </script>
