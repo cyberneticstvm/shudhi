@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CustomerGeoTagging;
 use App\Models\LocalBody;
 use App\Models\StaffFeedback;
 use Carbon\Carbon;
@@ -39,6 +40,16 @@ class ReportController extends Controller
 
     public function getGeoTagging(Request $request)
     {
-        //
+        $this->validate($request, [
+            'from_date' => 'required',
+            'to_date' => 'required',
+            'local_body' => 'required',
+        ]);
+        $input = array($request->from_date, $request->to_date, $request->local_body);
+        $lbs = LocalBody::pluck('name', 'id');
+        $fromdate = Carbon::parse($request->from_date)->startOfDay();
+        $todate = Carbon::parse($request->to_date)->endOfDay();
+        $data = CustomerGeoTagging::whereBetween('created_at', [$fromdate, $todate])->where('localbody_id', $request->local_body)->get();
+        return view('admin.report.staff.geo-tagging', compact('input', 'data', 'lbs'));
     }
 }
