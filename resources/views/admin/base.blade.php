@@ -8,8 +8,6 @@
     <meta name="description" content="Create your medical prescription online.">
     <meta name="keywords" content="medical prescription, consultation, medical records, digital medical prescription, online medical prescription">
     <meta name="author" content="Cybernetics">
-    <link rel="icon" href="{{ asset('/frontend/assets/img/favicon1.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('/frontend/assets/img/favicon1.png') }}" type="image/x-icon">
     <title>Shudhi WMS</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Google font-->
@@ -30,7 +28,8 @@
     <!-- Plugins css start-->
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/todo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/select2.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/datatables.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/dataTables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/assets/css/date-picker.css') }}">
@@ -63,8 +62,8 @@
         <div class="page-main-header">
             <div class="main-header-right row m-0">
                 <div class="main-header-left">
-                    <div class="logo-wrapper"><a href="{{ route('admin.dashboard') }}"><img class="img-fluid" src="{{ asset('/frontend/assets/img/logo-mpp-dark.png') }}" alt=""></a></div>
-                    <div class="dark-logo-wrapper"><a href="{{ route('admin.dashboard') }}"><img class="img-fluid" src="{{ asset('/frontend/assets/img/logo-mpp-dark.png') }}" alt=""></a></div>
+                    <div class="logo-wrapper"></div>
+                    <div class="dark-logo-wrapper"></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"></i></div>
                 </div>
                 <div class="nav-right col pull-right right-menu p-0">
@@ -119,8 +118,29 @@
     <!-- Plugins JS start-->
     <script src="{{ asset('/backend/assets/js/bootstrap_bundle.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/tooltip-init.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
+
+    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>-->
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/dataTables.bundle.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/jszip.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/buttons/buttons.print.min.js') }}"></script>
+    <!--<script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>-->
+
+    <script>
+        $(function() {
+            $('#basic-2').DataTable({
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'excel',
+                    'pdf',
+                ]
+            });
+        })
+    </script>
 
 
     <script src="{{ asset('/backend/assets/js/clipboard/clipboard.min.js') }}"></script>
@@ -141,7 +161,6 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ asset('/backend/assets/js/script.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/mpp.js') }}"></script>
     <script>
         var colorurl = "{{ asset('/backend/assets') }}";
     </script>
