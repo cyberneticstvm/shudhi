@@ -119,9 +119,6 @@
     <!-- Plugins JS start-->
     <script src="{{ asset('/backend/assets/js/bootstrap_bundle.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/tooltip-init.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
-
 
     <script src="{{ asset('/backend/assets/js/clipboard/clipboard.min.js') }}"></script>
     <script src="{{ asset('/backend/assets/js/counter/jquery.waypoints.min.js') }}"></script>
@@ -148,6 +145,8 @@
     <!--<script src="{{ asset('/backend/assets/js/theme-customizer/customizer.js') }}"></script>-->
     <!-- login js-->
     <!-- Plugin used-->
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/backend/assets/js/datatable/datatables/datatable.custom.js') }}"></script>
     @include("message")
 </body>
 
