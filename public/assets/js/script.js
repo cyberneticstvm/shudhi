@@ -124,7 +124,8 @@ $(function(){
             url: '/ajax/ddl/' + did + '/' +type,
             dataType: 'json',
             success: function(res) {
-                var xdata = $.map(res, function(obj) {
+                console.log(res)
+                /*var xdata = $.map(res, function(obj) {
                     obj.text = obj.name || obj.id;
                     return obj;
                 });
@@ -132,7 +133,7 @@ $(function(){
                 $('.'+cls).select2({
                     placeholder: 'Select',
                     data: xdata,
-                });
+                });*/
             }
         });
     });
