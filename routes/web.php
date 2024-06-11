@@ -33,7 +33,7 @@ Route::middleware(['web'])->group(function () {
 
 Route::middleware(['web', 'auth'])->group(function () {
     Route::prefix('/')->controller(AdminController::class)->group(function () {
-        Route::get('ajax/lbody/{id}/{type}', 'getDdlData')->name('get.ddl.data');
+        Route::get('ajax/ddl/{id}/{type}', 'getDdlData')->name('get.ddl.data');
         Route::get('account', 'account')->name('account');
         Route::get('logout', 'logout')->name('logout');
     });

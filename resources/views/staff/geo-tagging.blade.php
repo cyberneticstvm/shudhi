@@ -67,7 +67,7 @@
             <label class="form-label text-muted small mb-1 req">Local Body </label>
             <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
                 <span class="input-group-text bg-white"><i class="bi bi-pin text-muted"></i></span>
-                {{ html()->select('localbody_id', $lbs->pluck('name', 'id'), old('localbody_id'))->class('form-control select2 selChange')->attribute('data-type', 'lb')->placeholder('Select') }}
+                {{ html()->select('localbody_id', $lbs->pluck('name', 'id'), old('localbody_id'))->class('form-control lbody select2 selChange')->attribute('data-type', 'lb')->attribute('data-container', 'lbody')->placeholder('Select') }}
             </div>
             @error('localbody_id')
             <small class="text-danger">{{ $errors->first('localbody_id') }}</small>
@@ -77,7 +77,7 @@
             <label class="form-label text-muted small mb-1 req">Ward </label>
             <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
                 <span class="input-group-text bg-white"><i class="bi bi-file text-muted"></i></span>
-                {{ html()->select('ward_id', $wards->pluck('name', 'id'), old('ward_id'))->class('form-control select2')->placeholder('Select') }}
+                {{ html()->select('ward_id', $wards->pluck('name', 'id'), old('ward_id'))->class('form-control select2 ward')->attribute('data-container', 'ward')->placeholder('Select') }}
             </div>
             @error('ward_id')
             <small class="text-danger">{{ $errors->first('ward_id') }}</small>

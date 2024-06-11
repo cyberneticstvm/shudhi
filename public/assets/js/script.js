@@ -118,17 +118,18 @@ $(function(){
     $(".selChange").change(function() {
         let did = $(this).val();
         let type = $(this).data('type');
+        let cls = $(this).data('container');
         $.ajax({
             type: 'GET',
-            url: '/ajax/lbody/' + did + '/' +type,
+            url: '/ajax/ddl/' + did + '/' +type,
             dataType: 'json',
             success: function(res) {
                 var xdata = $.map(res, function(obj) {
                     obj.text = obj.name || obj.id;
                     return obj;
                 });
-                $('.lbody').select2().empty();
-                $('.lbody').select2({
+                $('.'+cls).select2().empty();
+                $('.'+cls).select2({
                     placeholder: 'Select',
                     data: xdata,
                 });
