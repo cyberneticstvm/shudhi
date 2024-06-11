@@ -123,9 +123,9 @@ $(function(){
             type: 'GET',
             url: '/ajax/ddl/' + did + '/' +type,
             dataType: 'json',
-            success: function(res) {
-                console.log(res)
+            success: function(res) {                
                 $.map(res, function(obj) {
+                    console.log(obj.name)
                     $("."+cls).append("<option value='"+obj.id+"'>"+obj.name+"</option>");
                 });
                 /*var xdata = $.map(res, function(obj) {
