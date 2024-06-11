@@ -124,7 +124,7 @@ $(function(){
             url: '/ajax/ddl/' + did + '/' +type,
             dataType: 'json',
             success: function(res) {                
-                $("."+cls).val("")
+                $("."+cls).find('option').remove();
                 $.map(res, function(obj) {                    
                     $("."+cls).append("<option value='"+obj.id+"'>"+obj.name+"</option>");
                 });
