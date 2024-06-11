@@ -113,7 +113,28 @@ $(function(){
                 console.log(XMLHttpRequest);
             }
         });
-    })
+    });
+
+    $(".selChange").change(function() {
+        let did = $(this).val();
+        let type = $(this).data('type');
+        $.ajax({
+            type: 'GET',
+            url: '/ajax/lbody/' + did + '/' +type,
+            dataType: 'json',
+            success: function(res) {
+                var xdata = $.map(res, function(obj) {
+                    obj.text = obj.name || obj.id;
+                    return obj;
+                });
+                $('.lbody').select2().empty();
+                $('.lbody').select2({
+                    placeholder: 'Select',
+                    data: xdata,
+                });
+            }
+        });
+    });
 });
 
 setTimeout(function () {

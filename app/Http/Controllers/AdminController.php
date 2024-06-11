@@ -218,4 +218,10 @@ class AdminController extends Controller
         StaffFeedback::create($input);
         return redirect()->back()->with("success", "Feedback submitted successfully");
     }
+
+    public function getDdlData(string $id, string $type)
+    {
+        $data = ($type == 'lb') ? Ward::where('localbody_id', $id)->get() : LocalBody::where('district_id', $id)->get();
+        return response()->json($data);
+    }
 }
