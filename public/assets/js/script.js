@@ -124,18 +124,10 @@ $(function(){
             url: '/ajax/ddl/' + did + '/' +type,
             dataType: 'json',
             success: function(res) {                
-                $.map(res, function(obj) {
+                $("."+cls).val("")
+                $.map(res, function(obj) {                    
                     $("."+cls).append("<option value='"+obj.id+"'>"+obj.name+"</option>");
                 });
-                /*var xdata = $.map(res, function(obj) {
-                    obj.text = obj.name || obj.id;
-                    return obj;
-                });
-                $('.'+cls).select2().empty();
-                $('.'+cls).select2({
-                    placeholder: 'Select',
-                    data: xdata,
-                });*/
             }
         });
     });
