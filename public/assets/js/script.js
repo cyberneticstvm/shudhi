@@ -125,6 +125,9 @@ $(function(){
             dataType: 'json',
             success: function(res) {
                 console.log(res)
+                $.map(res, function(obj) {
+                    $("."+cls).append("<option value='"+obj.id+"'>"+obj.name+"</option>");
+                });
                 /*var xdata = $.map(res, function(obj) {
                     obj.text = obj.name || obj.id;
                     return obj;
