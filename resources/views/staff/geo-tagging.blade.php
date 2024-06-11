@@ -54,16 +54,6 @@
             <input type="hidden" name="longitude" id="longitude" value="" />
         </div>
         <div class="mb-4">
-            <label class="form-label text-muted small mb-1 req">Local Body </label>
-            <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
-                <span class="input-group-text bg-white"><i class="bi bi-pin text-muted"></i></span>
-                {{ html()->select('localbody_id', $lbs->pluck('name', 'id'), old('localbody_id'))->class('form-control select2')->placeholder('Select') }}
-            </div>
-            @error('localbody_id')
-            <small class="text-danger">{{ $errors->first('localbody_id') }}</small>
-            @enderror
-        </div>
-        <div class="mb-4">
             <label class="form-label text-muted small mb-1 req">District </label>
             <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
                 <span class="input-group-text bg-white"><i class="bi bi-file text-muted"></i></span>
@@ -71,6 +61,16 @@
             </div>
             @error('district_id')
             <small class="text-danger">{{ $errors->first('district_id') }}</small>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label class="form-label text-muted small mb-1 req">Local Body </label>
+            <div class="input-group input-group-lg bg-white shadow-sm rounded overflow-hiddem">
+                <span class="input-group-text bg-white"><i class="bi bi-pin text-muted"></i></span>
+                {{ html()->select('localbody_id', $lbs->pluck('name', 'id'), old('localbody_id'))->class('form-control select2')->placeholder('Select') }}
+            </div>
+            @error('localbody_id')
+            <small class="text-danger">{{ $errors->first('localbody_id') }}</small>
             @enderror
         </div>
         <div class="mb-4">
