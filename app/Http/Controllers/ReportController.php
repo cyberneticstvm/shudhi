@@ -52,7 +52,9 @@ class ReportController extends Controller
         $wards = Ward::orderBy('name')->pluck('name', 'id');
         $fromdate = Carbon::parse($request->from_date)->startOfDay();
         $todate = Carbon::parse($request->to_date)->endOfDay();
-        $data = CustomerGeoTagging::whereBetween('created_at', [$fromdate, $todate])->where('localbody_id', $request->local_body)->get();
+        $data = CustomerGeoTagging::whereBetween('created_at', [$fromdate, $todate])->where('localbody_id', $request->local_body)->when($request->ward > 0, function ($q) use ($request) {
+            return $q->where('ward_id', $request->ward);
+        })->get();
         return view('admin.report.staff.geo-tagging', compact('input', 'data', 'lbs', 'wards'));
     }
 }
