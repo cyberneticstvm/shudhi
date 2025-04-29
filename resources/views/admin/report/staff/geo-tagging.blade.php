@@ -40,10 +40,17 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-3">
-                                        <label class="col-form-label pt-0 req" for="to_date">Local Body </label>
+                                        <label class="col-form-label pt-0 req">Local Body </label>
                                         {{ html()->select('local_body', $lbs, $input[2])->class('form-control select2') }}
                                         @error('local_body')
                                         <small class="text-danger">{{ $errors->first('local_body') }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-form-label pt-0 req">Ward </label>
+                                        {{ html()->select('ward', $wards->prepend('All', '0'), $input[3])->class('form-control select2') }}
+                                        @error('ward')
+                                        <small class="text-danger">{{ $errors->first('ward') }}</small>
                                         @enderror
                                     </div>
                                 </div>
