@@ -35,7 +35,7 @@ class ReportController extends Controller
     {
         $input = array(date('Y-m-d'), date('Y-m-d'), 1, 0);
         $lbs = LocalBody::pluck('name', 'id');
-        $wards = Ward::orderBy('name')->pluck('name', 'id');
+        $wards = Ward::orderBy('name')->pluck('id', 'name');
         $data = [];
         return view('admin.report.staff.geo-tagging', compact('input', 'data', 'lbs', 'wards'));
     }
@@ -49,7 +49,7 @@ class ReportController extends Controller
         ]);
         $input = array($request->from_date, $request->to_date, $request->local_body, $request->ward);
         $lbs = LocalBody::pluck('name', 'id');
-        $wards = Ward::orderBy('name')->pluck('name', 'id');
+        $wards = Ward::orderBy('name')->pluck('id', 'name');
         $fromdate = Carbon::parse($request->from_date)->startOfDay();
         $todate = Carbon::parse($request->to_date)->endOfDay();
         $data = CustomerGeoTagging::whereBetween('created_at', [$fromdate, $todate])->where('localbody_id', $request->local_body)->get();
