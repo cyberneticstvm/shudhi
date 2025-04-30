@@ -21,6 +21,10 @@
             <a href="{{ route('user.feedback') }}"><img src="{{ asset('/assets/img/shudhi/service.png') }}" class="img-fluid" /></a><br>
             <span class="text-success fw-bold">SERVICE REQUEST</span>
         </div>
+        <div class="col text-center p-3">
+            <a href="{{ route('staff.geo.tagging.list') }}"><img src="{{ asset('/assets/img/shudhi/geotag.png') }}" class="img-fluid" /></a><br>
+            <span class="text-success fw-bold">GEO TAG</span>
+        </div>
     </div>
 </div>
 @include("bottom-nav")
