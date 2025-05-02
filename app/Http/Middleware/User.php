@@ -18,6 +18,6 @@ class User
         if ($request->user()->role == 'User')
             return $next($request);
         else
-            return redirect()->back()->withError('Info! This feature is permitted to users only');
+            return redirect()->back()->withError('Info! This feature is permitted to admin only');
     }
 }
